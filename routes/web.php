@@ -42,3 +42,39 @@ Route::get('/teman', function () {
 Route::get('/tanggal', function () {
     return view('tanggal');
 });
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+route::get('page/{page?}', function ($hal = 2) {
+    return "Halaman <b>$hal</b>";
+});
+
+Route::get('mino/{mini?}', function ($hal = 2) {
+    return "Halaman <b>$hal</b>";
+});
+
+Route::get('pesanan/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = null,$minuman = null,$cemilan = null) {
+    if ($makanan == null && $minuman == null && $cemilan == null) {
+        $aceng = "<center><b><br><br><h2>Anda Tidak Pesan, Silahkan Pulang</h2></b></center>";
+    }
+            if ($makanan != null ) {
+            $aceng = "<center><br><br><h2>Pesanan <br>"
+            . "Makanan : $makanan </h2></center><br>";
+        }
+        if ($makanan != null && $minuman != null ) {
+            $aceng = "<center><br><br><h2><b>Pesanan <br>"
+            . "Makanan : $makanan <br>"
+            . "Minuman : $minuman </b></h2></center><br>";
+        }
+
+        if ($makanan != null && $minuman != null && $cemilan != null) {
+            $aceng = "<center><br><br><h2><b>Pesanan <br>"
+            . "Makanan : $makanan <br>"
+            . "Minuman : $minuman <br>"
+            . "Cemilan : $cemilan </b></h2></center>";
+}
+
+    return "$aceng";
+});
