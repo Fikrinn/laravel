@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/mobil', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -77,4 +77,82 @@ Route::get('pesanan/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = null
 }
 
     return "$aceng";
+});
+
+
+route::get('profile', function () {
+    $nama = "Fikri";
+    return view('profile', compact('nama'));
+});
+
+route::get('biodata', function () {
+    $nama = "Fikri";
+    $umur = "17";
+    $sekolah ="Smk Assalam";
+    $alamat = "Sukamenak";
+
+    return view('biodata', compact('nama', 'umur', 'sekolah', 'alamat'));
+});
+
+Route::get('blog', function () {
+    $pilih = [
+        ['id' => '1', 'name' => 'Fikri Nurfaizi',
+            'username' => 'Fikri_Nurfaizi',
+            'email' => 'fikri@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Matematika',
+                'mapel2' => 'Fisika',
+                'mapel3' => 'Kimia',
+
+            ],
+        ],
+        ['id' => '2', 'name' => 'Altaf',
+            'username' => 'Altaf-dot',
+            'email' => 'altaf@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Indonesia',
+                'mapel2' => 'Fisika',
+                'mapel3' => 'Matematika',
+
+            ],
+        ],
+        ['id' => '3', 'name' => 'Ikhsan',
+            'username' => 'ikhsan-dot',
+            'email' => 'ikhsan@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Matematika',
+                'mapel2' => 'Inggris',
+                'mapel3' => 'Kimia',
+
+            ],
+        ],
+
+        ['id' => '4', 'name' => 'Firman',
+            'username' => 'firman-dot',
+            'email' => 'firman@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'inggris',
+                'mapel2' => 'Fisika',
+                'mapel3' => 'olahraga',
+
+            ],
+        ],
+
+        ['id' => '5', 'name' => 'Genta',
+            'username' => 'genta-dot',
+            'email' => 'genta@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Matematika',
+                'mapel2' => 'Seni Budaya',
+                'mapel3' => 'sunda',
+
+            ],
+        ],
+    ];
+    return view('blog', compact('pilih'));
 });
