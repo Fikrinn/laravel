@@ -156,3 +156,18 @@ Route::get('blog', function () {
     ];
     return view('blog', compact('pilih'));
 });
+
+Route::get('/testmodel', function() {
+    $query = App\Models\Post::all();
+    return $query;
+    });
+
+Route::get('/test-post', function() {
+        $query = App\Models\Post::all();
+        return view('test-post', compact('query'));
+        });
+
+Route::get('/biodata', function() {
+        $query = App\Models\biodata::all();
+        return view('biodataa', compact('query'));
+        });
